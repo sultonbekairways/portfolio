@@ -1,0 +1,20 @@
+.nav {
+  padding: 1em 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    &__link {
+      line-height: 0.8rem;
+      margin: 5px;
+    }
+    &__link.space {
+      margin: 5px 15px;
+    }
+  }
+}
