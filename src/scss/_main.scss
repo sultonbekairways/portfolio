@@ -2,8 +2,15 @@
 .wrapper {
   min-height: 80vh;
   padding-top: 70px;
+  &.opacity {
+    opacity: .1;
+    transition: 1s;
+  }
 }
 
 .contact-icon {
-  width: 20px;
+  width: 30px;
+  @media (max-width: $md) {
+    width: 50px;
+  }
 }
