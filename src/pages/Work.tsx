@@ -3,7 +3,7 @@ import React from 'react'
 function Work() {
   return (
     <div>
-      Work
+      buyoda tipa Work larim bo'ladi
     </div>
   )
 }

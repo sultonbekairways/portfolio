@@ -5,11 +5,15 @@ import { NavLink } from "react-router-dom";
 import github from "../assets/img/github.svg";
 import telegram from "../assets/img/telegram.svg";
 
-function Nav() {
+interface navProps {
+  pageTrans: Function;
+}
+
+function Nav({ pageTrans }: navProps) {
   const [width, setWidth] = React.useState(window.innerWidth);
 
   // nav-menu toggle
-  const handleButtonClick = () => {
+  const menuToggle = () => {
     if (width < 768) {
       navWrapperRef.current?.classList.toggle("transform");
 
@@ -17,6 +21,11 @@ function Nav() {
 
       document.querySelector(".wrapper")?.classList.toggle("opacity");
     }
+  };
+
+  const handleButtonClick = () => {
+    menuToggle();
+    pageTrans();
   };
 
   const navWrapperRef = React.useRef<HTMLDivElement>(null);
@@ -42,6 +51,7 @@ function Nav() {
     <div className="nav">
       <div className="logo">
         <NavLink
+          onClick={() => pageTrans()}
           activeClassName="nav-active"
           to="/"
           exact
@@ -51,30 +61,38 @@ function Nav() {
       </div>
 
       {width < 768 && (
-        <div ref={navOpenRef} className="nav-open" onClick={handleButtonClick}>
+        <div ref={navOpenRef} className="nav-open" onClick={menuToggle}>
           |||
         </div>
       )}
 
       <div ref={navWrapperRef} className="nav__wrapper">
         {width < 768 && (
-          <div className="nav-close" onClick={handleButtonClick}>
+          <div className="nav-close" onClick={menuToggle}>
             X
           </div>
         )}
         <ul className="nav-list">
           <li className="nav-list__link space">
-            <NavLink activeClassName="nav-active" onClick={handleButtonClick} to="/about">
+            <NavLink
+              activeClassName="nav-active"
+              onClick={handleButtonClick}
+              to="/about"
+            >
               .\about
             </NavLink>
           </li>
           <li className="nav-list__link space">
-            <NavLink activeClassName="nav-active" onClick={handleButtonClick} to="/work">
+            <NavLink
+              activeClassName="nav-active"
+              onClick={handleButtonClick}
+              to="/work"
+            >
               .\work
             </NavLink>
           </li>
           <li className="nav-list__link space">
-            <a onClick={handleButtonClick} href="mailto:kingsulton45@gmail.com">
+            <a onClick={menuToggle} href="mailto:kingsulton45@gmail.com">
               .\contact
             </a>
           </li>
