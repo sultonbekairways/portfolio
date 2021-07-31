@@ -5,28 +5,34 @@ import { Home, About, Work } from "./pages";
 import Nav from "./components/Nav";
 import itachi from "./assets/gif/itachi.gif";
 
-
 function App() {
   const [itachiVisibility, setItachiVisibility] = React.useState(false);
 
+  const itachiRef = React.useRef<HTMLImageElement>(null);
+
   const handleItachiVisibilty = () => {
     setItachiVisibility(true);
+
     setTimeout(() => {
-      setItachiVisibility(false)
+      itachiRef.current?.classList.remove("visibility");
+    }, 2000);
+
+    setTimeout(() => {
+      setItachiVisibility(false);
     }, 2300);
   };
+
+  React.useEffect(() => {
+    itachiRef.current?.classList.add("visibility");
+  }, [itachiVisibility]);
 
   return (
     <>
       {itachiVisibility && (
-        <img
-          className="itachi"
-          src={itachi}
-          alt=""
-        />
+        <img ref={itachiRef} className="itachi" src={itachi} alt="" />
       )}
-      <Nav pageTrans={handleItachiVisibilty}/>
-      <div className="wrapper" >
+      <Nav pageTrans={handleItachiVisibilty} />
+      <div className="wrapper">
         <Route path="/" exact component={Home} />
         <Route path="/about" component={About} />
         <Route path="/work" component={Work} />

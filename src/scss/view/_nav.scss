@@ -1,5 +1,5 @@
 .nav-active {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .nav {
@@ -16,7 +16,7 @@
 
   &-open {
     transform: rotate(90deg);
-    transition: .5s;
+    transition: 0.5s;
     &.opacity {
       opacity: 0;
     }
@@ -31,7 +31,8 @@
       top: 0;
       right: 0;
       width: 100vw;
-      height: 100vh;
+      height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+      height: calc(var(--vh, 1vh) * 100);
       text-align: right;
       z-index: 20;
       padding: 8rem 1rem 1.5rem;
