@@ -1,3 +1,8 @@
+p {
+  color: $text;
+  letter-spacing: 1.3px;
+}
+
 .wrapper {
   min-height: 80vh;
   padding-top: 70px;
@@ -21,10 +26,10 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  opacity: 1;
   object-fit: cover;
-  opacity: 0;
   transition: .5s;
   &.visibility {
-    opacity: 1;
+    opacity: 0;
   }
 }

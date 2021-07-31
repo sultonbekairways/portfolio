@@ -14,16 +14,16 @@ function App() {
     setItachiVisibility(true);
 
     setTimeout(() => {
-      itachiRef.current?.classList.remove("visibility");
-    }, 2000);
-
+      itachiRef.current?.classList.add("visibility");
+    }, 1800);
+    
     setTimeout(() => {
+      itachiRef.current?.classList.remove("visibility");
       setItachiVisibility(false);
     }, 2300);
   };
 
   React.useEffect(() => {
-    itachiRef.current?.classList.add("visibility");
   }, [itachiVisibility]);
 
   return (

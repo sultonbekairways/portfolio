@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import gsap from "gsap";
 import { NavLink } from "react-router-dom";
@@ -21,8 +22,8 @@ function Nav({ pageTrans }: navProps) {
   const menuToggle = () => {
     if (width < 768) {
       navWrapperRef.current?.classList.toggle("transform");
-
       navOpenRef.current?.classList.toggle("opacity");
+      navMainRef.current?.classList.toggle("opacity");
 
       document.querySelector(".wrapper")?.classList.toggle("opacity");
     }
@@ -35,6 +36,7 @@ function Nav({ pageTrans }: navProps) {
 
   const navWrapperRef = React.useRef<HTMLDivElement>(null);
   const navOpenRef = React.useRef<HTMLDivElement>(null);
+  const navMainRef = React.useRef<HTMLAnchorElement>(null);
 
   // window resize handler
   React.useEffect(() => {
@@ -48,22 +50,22 @@ function Nav({ pageTrans }: navProps) {
   // gsap nav-components movement
   React.useEffect(() => {
     const tl = gsap.timeline();
-    tl.from(".logo", { x: -500, duration: 1 });
+    tl.from(".nav-main", { x: -500, duration: 1 });
     tl.from(".nav-list", { x: 500 }, "-=0.5");
   }, []);
 
   return (
     <div className="nav">
-      <div className="logo">
-        <NavLink
-          onClick={() => pageTrans()}
-          activeClassName="nav-active"
-          to="/"
-          exact
-        >
-          .\explore
-        </NavLink>
-      </div>
+      <NavLink
+        ref={navMainRef}
+        onClick={() => pageTrans()}
+        activeClassName="nav-active"
+        to="/"
+        exact
+        className="nav-main"
+      >
+        ./explore
+      </NavLink>
 
       {width < 768 && (
         <div ref={navOpenRef} className="nav-open" onClick={menuToggle}>
@@ -84,7 +86,7 @@ function Nav({ pageTrans }: navProps) {
               onClick={handleButtonClick}
               to="/about"
             >
-              .\about
+              ./about
             </NavLink>
           </li>
           <li className="nav-list__link space">
@@ -93,21 +95,33 @@ function Nav({ pageTrans }: navProps) {
               onClick={handleButtonClick}
               to="/work"
             >
-              .\work
+              ./work
             </NavLink>
           </li>
           <li className="nav-list__link space">
-            <a onClick={menuToggle} href="mailto:kingsulton45@gmail.com">
-              .\contact
+            <a
+              onClick={menuToggle}
+              href="mailto:kingsulton45@gmail.com"
+              title="Mail"
+            >
+              ./contact
             </a>
           </li>
           <li className="nav-list__link icon">
-            <a href="https://t.me/s/sultonbekairways">
+            <a
+              href="https://t.me/s/sultonbekairways"
+              target="_blank"
+              title="Telegram"
+            >
               <img className="contact-icon" src={telegram} alt="telegram" />
             </a>
           </li>
           <li className="nav-list__link icon">
-            <a href="https://github.com/sultonbekairways">
+            <a
+              href="https://github.com/sultonbekairways"
+              target="_blank"
+              title="Github"
+            >
               <img className="contact-icon" src={github} alt="github" />
             </a>
           </li>
