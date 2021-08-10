@@ -1,0 +1,12 @@
+.work {
+  padding: 3rem 15px;
+  .spacer {
+     height: 50vh;
+  }
+  h1 {
+    font-size: 4rem;
+    @media (max-width: $md) {
+      font-size: 3rem;
+    }
+  }
+}

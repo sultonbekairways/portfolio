@@ -72,6 +72,7 @@ function About() {
           <li className="grid-item">Javascript / 2+</li>
           <li className="grid-item">Typescript.js / 1~</li>
           <li className="grid-item">React / 1~</li>
+          <li className="grid-item">Git,Github / 1+</li>
           <li className="grid-item">HTML / 2+</li>
           <li className="grid-item">Scss / 1+</li>
           <li className="grid-item">Figma / 1+</li>
@@ -102,7 +103,7 @@ function About() {
           </li>
           <li className="grid-item">
             <span>Web layout designer</span> <br />
-            @ TeamPro <br />
+            @ TeamPro.uz <br />
             2021 February
           </li>
         </ul>
