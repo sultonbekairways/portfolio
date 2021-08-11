@@ -54,6 +54,8 @@ function getAdditionalModulePaths(options = {}) {
  *
  * @param {*} options
  */
+
+const removeWildcardPart = p => p.replace('/*', '');
 function getWebpackAliases(options = {}) {
   const baseUrl = options.baseUrl;
 
@@ -61,13 +63,26 @@ function getWebpackAliases(options = {}) {
     return {};
   }
 
-  const baseUrlResolved = path.resolve(paths.appPath, baseUrl);
+  // const baseUrlResolved = path.resolve(paths.appPath, baseUrl);
 
-  if (path.relative(paths.appPath, baseUrlResolved) === '') {
-    return {
-      src: paths.appSrc,
-    };
-  }
+  // if (path.relative(paths.appPath, baseUrlResolved) === '') {
+  //   return {
+  //     src: paths.appSrc,
+  //   };
+  // }
+
+  
+  let resultAlias = {src: paths.appSrc}
+    
+  return Object.assign({}, resultAlias,
+          Object.keys(options.paths).reduce(
+              (obj, alias) => {
+                  obj[removeWildcardPart(alias)] = 
+                    options.paths[alias].map(removeWildcardPart)[0]
+                  return obj
+              }, {}
+          )
+      )
 }
 
 /**
@@ -82,13 +97,26 @@ function getJestAliases(options = {}) {
     return {};
   }
 
-  const baseUrlResolved = path.resolve(paths.appPath, baseUrl);
+  // const baseUrlResolved = path.resolve(paths.appPath, baseUrl);
 
-  if (path.relative(paths.appPath, baseUrlResolved) === '') {
-    return {
-      '^src/(.*)$': '<rootDir>/src/$1',
-    };
-  }
+  // if (path.relative(paths.appPath, baseUrlResolved) === '') {
+  //   return {
+  //     '^src/(.*)$': '<rootDir>/src/$1',
+  //   };
+  // }
+
+  let resultAlias = {'^src/(.*)$': '<rootDir>/src/$1'}
+    
+  return Object.assign({}, resultAlias,
+          Object.keys(options.paths).reduce(
+              (obj, alias) => {
+                  obj[`^${removeWildcardPart(alias)}(.*)$`] = 
+                    options.paths[alias]
+                      .map(p => `<rootDir>/src/${removeWildcardPart(p)}/$1`)
+                  return obj
+              }, {}
+          )
+      )
 }
 
 function getModules() {

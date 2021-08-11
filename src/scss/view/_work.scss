@@ -1,12 +1,50 @@
 .work {
   padding: 3rem 15px;
-  .spacer {
-     height: 50vh;
-  }
+
   h1 {
+    margin-top: 5vh;
     font-size: 4rem;
     @media (max-width: $md) {
       font-size: 3rem;
     }
+  }
+  .subtitle {
+    margin-bottom: 5vh;
+  }
+  &-item {
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10vh;
+    &__info {
+      padding: 1rem;
+      width: 50%;
+      h2 {
+        font-size: 3rem;
+        @media (max-width: $md) {
+          font-size: 2rem;
+        }
+      }
+      span {
+        color: gray;
+      }
+      p {
+        text-transform: lowercase;
+      }
+    }
+  }
+  &-real {
+    img {
+      width: 40%;
+      border-radius: 2%;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    img.opacity {
+      opacity: 1;
+    }
+  }
+  .spacer {
+    height: 100vh;
   }
 }
