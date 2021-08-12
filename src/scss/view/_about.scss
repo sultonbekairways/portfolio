@@ -101,4 +101,29 @@
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
+}
+
+.dance-wrapper {
+  display: flex;
+  align-items: flex-end;
+  margin-top: -10rem;
+  position: relative;
+}
+
+#about-motionPath {
+  position: absolute;
+  right: 12%;
+  left: 12%;
+  bottom: 0;
+}
+
+.about-dance {
+  width: 50%;
+  display: block;
+}
+
+.about-cloud {
+  position: absolute;
+  width: 100%;
 }

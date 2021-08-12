@@ -1,13 +1,52 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react";
+import gsap from "gsap";
+import { MotionPathPlugin } from "gsap/all";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-import head from "../assets/img/head.jpg";
-import github from "../assets/img/github.svg";
-import telegram from "../assets/img/telegram.svg";
-import mail from "../assets/img/mail.svg";
-import download from "../assets/img/download.svg";
+import head from "@assets/img/head.jpg";
+import github from "@assets/img/github.svg";
+import telegram from "@assets/img/telegram.svg";
+import mail from "@assets/img/mail.svg";
+import download from "@assets/img/download.svg";
+import clouds from "@assets/img/clouds.png";
+import gojoDance from "@assets/gif/gojoDance.gif";
+import kakashi from "@assets/gif/kakashi.gif";
 
 function About() {
+  gsap.registerPlugin(MotionPathPlugin);
+  gsap.registerPlugin(ScrollTrigger);
+
+  ScrollTrigger.defaults({
+    toggleActions: "restart none reverse none",
+  });
+
+  React.useEffect(() => {
+    // Kakashi
+    gsap.to(".kakashi-dance", {
+      motionPath: {
+        path: "#about-path",
+        align: "#about-path",
+        alignOrigin: [0.5, 1],
+      },
+      duration: 6,
+      yoyo: true,
+      repeat: Infinity,
+    });
+    // Gojo
+    gsap.to(".gojo-dance", {
+      motionPath: {
+        path: "#about-path",
+        align: "#about-path",
+        alignOrigin: [0.5, 1],
+      },
+      delay: 3,
+      duration: 6,
+      yoyo: true,
+      repeat: Infinity,
+    });
+  }, []);
+
   return (
     <>
       <img className="about-head" src={head} alt="my-head" />
@@ -124,6 +163,27 @@ function About() {
             French <br />
           </div>
         </ul>
+      </div>
+
+      <div className="dance-wrapper">
+        <img
+          src={gojoDance}
+          alt="gojoDance"
+          className="gojo-dance about-dance"
+        />
+        <img
+          src={kakashi}
+          alt="kakashi"
+          className="kakashi-dance about-dance"
+        />
+        <img src={clouds} alt="clouds" className="about-cloud" />
+        <svg id="about-motionPath" viewBox="-20 0 557 190">
+          <path
+            id="about-path"
+            fill="none"
+            d="M100.087,157.001 C136.214,137.154 114.416,141.291 187.47,140.291 262.459,140.291 225.881,119.24 263.867,123.454 321.613,129.86 316.041,172.118 358.866,162.301 444.282,142.718 413.928,155.826 437.565,139.326 "
+          />
+        </svg>
       </div>
     </>
   );
