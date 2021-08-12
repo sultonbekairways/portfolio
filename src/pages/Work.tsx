@@ -1,12 +1,15 @@
 import React from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import useDelayRouteExit from "delay-react-route-exit";
 
 import scn from "@assets/img/scn.jpg";
 import proweb from "@assets/img/proweb.jpg";
 import multicake from "@assets/img/multicake.jpg";
 
 function Work() {
+  useDelayRouteExit(500);
+
   React.useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 

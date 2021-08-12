@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import useDelayRouteExit from "delay-react-route-exit";
 
 // import obito from '../assets/gif/obito.gif'
 // import obito_kakashi from '../assets/gif/obito_kakashi.gif'
@@ -7,6 +8,8 @@ import React from 'react'
 // import itachi3 from '../assets/gif/itachi3.gif'
 
 function Index() {
+  useDelayRouteExit(500)
+
   return (
     <div className="Main">
       {/* <img src={obito} alt="" width="100%"/> */}

@@ -3,6 +3,7 @@ import React from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/all";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import useDelayRouteExit from "delay-react-route-exit";
 
 import head from "@assets/img/head.jpg";
 import github from "@assets/img/github.svg";
@@ -13,7 +14,9 @@ import clouds from "@assets/img/clouds.png";
 import gojoDance from "@assets/gif/gojoDance.gif";
 import kakashi from "@assets/gif/kakashi.gif";
 
+
 function About() {
+  useDelayRouteExit(500)
   gsap.registerPlugin(MotionPathPlugin);
   gsap.registerPlugin(ScrollTrigger);
 

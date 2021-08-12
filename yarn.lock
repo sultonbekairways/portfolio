@@ -4118,6 +4118,11 @@ del@^4.1.1:
     pify "^4.0.1"
     rimraf "^2.6.3"
 
+delay-react-route-exit@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/delay-react-route-exit/-/delay-react-route-exit-1.0.0.tgz#c6d363cebc84ab53b00f25fb542daf22b211fb34"
+  integrity sha512-+Svk0LE6wpDlu+cXkzeYftH+eOjJG8OGMwowITIRVWDDyLPOD+DB5qC7AuLKgef25IhnTAXXvcKoRFD8ZqxXFA==
+
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"

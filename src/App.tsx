@@ -12,6 +12,7 @@ function App() {
 
   const handleItachiVisibilty = () => {
     setItachiVisibility(true);
+    document.body.style.overflow = 'hidden';
 
     setTimeout(() => {
       itachiRef.current?.classList.add("visibility");
@@ -20,9 +21,11 @@ function App() {
     setTimeout(() => {
       itachiRef.current?.classList.remove("visibility");
       setItachiVisibility(false);
+      document.body.style.overflow = 'visible';
     }, 2300);
   };
 
+  
   React.useEffect(() => {
   }, [itachiVisibility]);
 
