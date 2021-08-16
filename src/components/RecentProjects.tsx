@@ -2,9 +2,6 @@ import React from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-import scn from "@assets/img/scn.jpg";
-import proweb from "@assets/img/proweb.jpg";
-import multicake from "@assets/img/multicake.jpg";
 
 export const RecentProjects = () => {
   React.useEffect(() => {
@@ -48,7 +45,7 @@ export const RecentProjects = () => {
 
       <div className="work-real">
         <a href="https://www.scnsoft.com/" className="work-scn work-item">
-          <img src={scn} alt="scn" className="work__img" />
+          <img src="/static/work/scn.jpg" alt="scn" className="work__img" />
           <div className="work-item__info">
             <h2>ScienceSoft</h2>
             <span>#2021 - commerce</span>
@@ -56,7 +53,7 @@ export const RecentProjects = () => {
           </div>
         </a>
         <a href="https://proweb.uz/" className="work-proweb work-item">
-          <img src={proweb} alt="proweb" className="work__img" />
+          <img src="/static/work/proweb.jpg" alt="proweb" className="work__img" />
           <div className="work-item__info">
             <h2>Proweb</h2>
             <span>#2021 - design project</span>
@@ -64,7 +61,7 @@ export const RecentProjects = () => {
           </div>
         </a>
         <a href="https://multicake.uz/" className="work-multicake work-item">
-          <img src={multicake} alt="multicake" className="work__img" />
+          <img src="/static/work/multicake.jpg" alt="multicake" className="work__img" />
           <div className="work-item__info">
             <h2>Multicake</h2>
             <span>#2021 - small commerce</span>

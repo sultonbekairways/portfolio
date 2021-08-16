@@ -16,6 +16,8 @@ export const PetProjects = () => {
     tl.to(".landing-box", {
       y: -210,
       duration: 0.4,
+      skewY: -10,
+      skewX: 10,
       stagger: {
         each: 0.1,
       },
@@ -34,18 +36,18 @@ export const PetProjects = () => {
     if (e.clientX > (landingWrapper.current?.clientWidth ?? 0) / 2) {
       gsap.to(".landing-wrapper", {
         scrollTo: {
-          x: "+=250",
+          x: "+=100",
         },
         ease: "power2.out",
-        duration: 2,
+        duration: 1.5,
       });
     } else {
       gsap.to(".landing-wrapper", {
         scrollTo: {
-          x: "-=250",
+          x: "-=100",
         },
         ease: "power2.out",
-        duration: 2,
+        duration: 1.5,
       });
     }
   }
@@ -68,7 +70,7 @@ export const PetProjects = () => {
           <div className="landing-box">
             <div className="landing-box__content">
               <a href="https://sultonbekairways.github.io/react-pizza/">Demo</a>
-              <img src="/static/petProjects/pet1.jpg" alt="Pet-project" />
+              <img src="/static/work/pet1.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>
                   Commerce (React, Redux, React-skeleton, PropTypes, Scss,
@@ -81,7 +83,7 @@ export const PetProjects = () => {
           <div className="landing-box">
             <div className="landing-box__content">
               <a href="https://sultonbekairways.github.io/threejs-game/fps.html">Demo</a>
-              <img src="/static/petProjects/pet2.jpg" alt="Pet-project" />
+              <img src="/static/work/pet2.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>Singleplayer shooter game (Three.js, only on PC)</p>
               </div>
@@ -91,7 +93,7 @@ export const PetProjects = () => {
           <div className="landing-box">
             <div className="landing-box__content">
               <a href="https://sultonbekairways.github.io/webSocket-soccer/public/index.html">Demo</a>
-              <img src="/static/petProjects/pet3.jpg" alt="Pet-project" />
+              <img src="/static/work/pet3.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>Multiplayer soccer game (Three.js, Websocket, Node.js)</p>
               </div>
@@ -101,7 +103,7 @@ export const PetProjects = () => {
           <div className="landing-box">
             <div className="landing-box__content">
               {/* <a href="">Demo</a> */}
-              <img src="/static/petProjects/pet4.jpg" alt="Pet-project" />
+              <img src="/static/work/pet4.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>Paint (React, Typescript, Redux, Redux-thunk)</p>
               </div>
@@ -111,7 +113,7 @@ export const PetProjects = () => {
           <div className="landing-box">
             <div className="landing-box__content">
               <a href="https://sultonbekairways-spacex.herokuapp.com/">Demo</a>
-              <img src="/static/petProjects/pet5.png" alt="Pet-project" />
+              <img src="/static/work/pet5.png" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>SpaceX (React, GraphQl, React-Apollo)</p>
               </div>
@@ -121,7 +123,7 @@ export const PetProjects = () => {
           <div className="landing-box">
             <div className="landing-box__content">
               {/* <a href="/">Demo</a> */}
-              <img src="/static/petProjects/pet6.jpg" alt="Pet-project" />
+              <img src="/static/work/pet6.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>Piano (React, Typescript, Adapters, AudioContext api)</p>
               </div>
@@ -131,7 +133,7 @@ export const PetProjects = () => {
           <div className="landing-box">
             <div className="landing-box__content">
               <a href="https://sultonbekairways.github.io/image-gallery/build/">Demo</a>
-              <img src="/static/petProjects/pet7.jpg" alt="Pet-project" />
+              <img src="/static/work/pet7.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>Image gallery (React, Tailwind css)</p>
               </div>
