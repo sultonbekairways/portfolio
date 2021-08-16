@@ -7,7 +7,7 @@ import useDelayRouteExit from "delay-react-route-exit";
 // import itachi from '../assets/gif/itachi.gif'
 // import itachi3 from '../assets/gif/itachi3.gif'
 
-function Index() {
+const Index = () => {
   useDelayRouteExit(500)
 
   return (

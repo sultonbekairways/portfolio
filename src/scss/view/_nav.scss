@@ -16,6 +16,10 @@
   background: $bg;
   box-shadow: 0 0 15px 15px $bg;
 
+  a:not(.nav-active):hover {
+    color: $main;
+  }
+
   &-main {
     &.opacity {
       opacity: 0.1;
@@ -26,8 +30,12 @@
   &-open {
     transform: rotate(90deg);
     transition: 0.5s;
+    display: none;
     &.opacity {
       opacity: 0;
+    }
+    @media (max-width: $md) {
+      display: block;
     }
   }
 
@@ -46,8 +54,8 @@
       z-index: 20;
       padding: 8rem 1rem 1.5rem;
       transform: translate(100%);
-      transition: 1s cubic-bezier(0.86, 0, 0.07, 1);
       &.transform {
+        transition: 1s cubic-bezier(0.86, 0, 0.07, 1);
         transform: translate(0);
       }
     }
@@ -58,6 +66,10 @@
     top: 0;
     right: 5px;
     padding: 1rem;
+    display: none;
+    @media (max-width: $md) {
+      display: block;
+    }
   }
 
   &-list {
@@ -71,6 +83,7 @@
     &__link {
       line-height: 1.2rem;
       margin: 5px;
+
       @media (max-width: $md) {
         line-height: 3.2rem;
         &.icon {

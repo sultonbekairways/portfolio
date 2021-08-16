@@ -5,17 +5,8 @@ import { MotionPathPlugin } from "gsap/all";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import useDelayRouteExit from "delay-react-route-exit";
 
-import head from "@assets/img/head.jpg";
-import github from "@assets/img/github.svg";
-import telegram from "@assets/img/telegram.svg";
-import mail from "@assets/img/mail.svg";
-import download from "@assets/img/download.svg";
-import clouds from "@assets/img/clouds.png";
-import gojoDance from "@assets/gif/gojoDance.gif";
-import kakashi from "@assets/gif/kakashi.gif";
 
-
-function About() {
+const About: React.FC = () => {
   useDelayRouteExit(500)
   gsap.registerPlugin(MotionPathPlugin);
   gsap.registerPlugin(ScrollTrigger);
@@ -52,7 +43,7 @@ function About() {
 
   return (
     <>
-      <img className="about-head" src={head} alt="my-head" />
+      <img className="about-head" src="/static/about/head.jpg" alt="my-head" />
       <div className="about">
         <h1>./about</h1>
         <ul className="about-contact">
@@ -62,7 +53,7 @@ function About() {
               className="about-contact__link"
               title="Mail"
             >
-              <img className="contact-icon" src={mail} alt="mail" />
+              <img className="contact-icon" src="/static/about/mail.svg" alt="mail" />
             </a>
           </li>
           <li>
@@ -72,7 +63,7 @@ function About() {
               className="about-contact__link"
               title="Telegram"
             >
-              <img className="contact-icon" src={telegram} alt="telegram" />
+              <img className="contact-icon" src="/static/svg/telegram.svg" alt="telegram" />
             </a>
           </li>
           <li>
@@ -82,7 +73,7 @@ function About() {
               className="about-contact__link"
               title="Github"
             >
-              <img className="contact-icon" src={github} alt="github" />
+              <img className="contact-icon" src="/static/svg/github.svg" alt="github" />
             </a>
           </li>
           <li>
@@ -92,7 +83,7 @@ function About() {
               title="Donwload Resume"
               className="about-contact__link"
             >
-              resume <img src={download} alt="download" />
+              resume <img src="/static/about/download.svg" alt="download" />
             </a>
           </li>
         </ul>
@@ -170,16 +161,16 @@ function About() {
 
       <div className="dance-wrapper">
         <img
-          src={gojoDance}
+          src="/static/about/gojoDance.gif"
           alt="gojoDance"
           className="gojo-dance about-dance"
         />
         <img
-          src={kakashi}
+          src="/static/about/kakashi.gif"
           alt="kakashi"
           className="kakashi-dance about-dance"
         />
-        <img src={clouds} alt="clouds" className="about-cloud" />
+        <img src="/static/about/clouds.png" alt="clouds" className="about-cloud" />
         <svg id="about-motionPath" viewBox="-20 0 557 190">
           <path
             id="about-path"

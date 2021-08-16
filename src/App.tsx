@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 import { Home, About, Work } from "./pages";
-import Nav from "./components/Nav";
+import { Nav } from "./components/Nav";
 import itachi from "./assets/gif/itachi.gif";
 
 function App() {
@@ -12,22 +12,18 @@ function App() {
 
   const handleItachiVisibilty = () => {
     setItachiVisibility(true);
-    document.body.style.overflow = 'hidden';
 
     setTimeout(() => {
       itachiRef.current?.classList.add("visibility");
     }, 1800);
-    
+
     setTimeout(() => {
       itachiRef.current?.classList.remove("visibility");
       setItachiVisibility(false);
-      document.body.style.overflow = 'visible';
     }, 2300);
   };
 
-  
-  React.useEffect(() => {
-  }, [itachiVisibility]);
+  React.useEffect(() => {}, [itachiVisibility]);
 
   return (
     <>

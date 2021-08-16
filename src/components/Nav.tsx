@@ -2,35 +2,24 @@
 import React from "react";
 import gsap from "gsap";
 import { NavLink } from "react-router-dom";
-
-import github from "../assets/img/github.svg";
-import telegram from "../assets/img/telegram.svg";
-
 interface navProps {
   pageTrans: Function;
 }
 
-function Nav({ pageTrans }: navProps) {
-  const [width, setWidth] = React.useState(window.outerWidth);
-
-  // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-  let vh = window.innerHeight * 0.01;
-  // Then we set the value in the --vh custom property to the root of the document
-  document.documentElement.style.setProperty("--vh", `${vh}px`);
+export const Nav: React.FC<navProps> = ({ pageTrans }) => {
+  const [height, setHeight] = React.useState(window.innerHeight);
 
   // nav-menu toggle
   const menuToggle = () => {
-    if (width < 768) {
-      navWrapperRef.current?.classList.toggle("transform");
-      navOpenRef.current?.classList.toggle("opacity");
-      navMainRef.current?.classList.toggle("opacity");
+    navWrapperRef.current?.classList.toggle("transform");
+    navOpenRef.current?.classList.toggle("opacity");
+    navMainRef.current?.classList.toggle("opacity");
 
-      document.querySelector(".wrapper")?.classList.toggle("opacity");
-    }
+    document.querySelector(".wrapper")?.classList.toggle("opacity");
   };
 
   const handleButtonClick = () => {
-    menuToggle();
+    if (window.outerWidth < 768) menuToggle();
     pageTrans();
   };
 
@@ -38,20 +27,29 @@ function Nav({ pageTrans }: navProps) {
   const navOpenRef = React.useRef<HTMLDivElement>(null);
   const navMainRef = React.useRef<HTMLAnchorElement>(null);
 
+  function handleResize() {
+    setHeight(window.innerHeight);
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = height * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  }
+
   // window resize handler
   React.useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth);
-    }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [width]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // gsap nav-components movement
   React.useEffect(() => {
     const tl = gsap.timeline();
     tl.from(".nav-main", { x: -500, duration: 1 });
     tl.from(".nav-list", { x: 500 }, "-=0.5");
+
+    handleResize()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -67,18 +65,15 @@ function Nav({ pageTrans }: navProps) {
         ./explore
       </NavLink>
 
-      {width < 768 && (
-        <div ref={navOpenRef} className="nav-open" onClick={menuToggle}>
-          |||
-        </div>
-      )}
+      <div ref={navOpenRef} className="nav-open" onClick={menuToggle}>
+        |||
+      </div>
 
       <div ref={navWrapperRef} className="nav__wrapper">
-        {width < 768 && (
-          <div className="nav-close" onClick={menuToggle}>
-            X
-          </div>
-        )}
+        <div className="nav-close" onClick={menuToggle}>
+          X
+        </div>
+
         <ul className="nav-list">
           <li className="nav-list__link space">
             <NavLink
@@ -113,7 +108,7 @@ function Nav({ pageTrans }: navProps) {
               target="_blank"
               title="Telegram"
             >
-              <img className="contact-icon" src={telegram} alt="telegram" />
+              <img className="contact-icon" src="/static/svg/telegram.svg" alt="telegram" />
             </a>
           </li>
           <li className="nav-list__link icon">
@@ -122,13 +117,11 @@ function Nav({ pageTrans }: navProps) {
               target="_blank"
               title="Github"
             >
-              <img className="contact-icon" src={github} alt="github" />
+              <img className="contact-icon" src="/static/svg/github.svg" alt="github" />
             </a>
           </li>
         </ul>
       </div>
     </div>
   );
-}
-
-export default Nav;
+};
