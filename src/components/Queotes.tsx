@@ -7,7 +7,6 @@ import "swiper/swiper.min.css";
 import "swiper/components/effect-coverflow/effect-coverflow.min.css";
 import "swiper/components/pagination/pagination.min.css";
 
-
 // import Swiper core and required modules
 import SwiperCore, { EffectCoverflow, Pagination } from "swiper/core";
 
@@ -15,7 +14,6 @@ import SwiperCore, { EffectCoverflow, Pagination } from "swiper/core";
 SwiperCore.use([EffectCoverflow, Pagination]);
 
 export default function Queotes() {
-  
   return (
     <>
       <Swiper
@@ -34,24 +32,13 @@ export default function Queotes() {
         pagination={true}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <img src="/static/gif/1000-7.gif" alt="hmm"/>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/static/gif/academy.gif" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/static/gif/collosal.gif" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/static/gif/saitama.gif" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/static/gif/obito.gif" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="/static/gif/rainer.gif" />
-        </SwiperSlide>
+        {Array(25)
+          .fill(null)
+          .map((_, i) => (
+            <SwiperSlide>
+              <img src={`/static/quotes/q${i}.jpg`} alt="quotes" loading="lazy"/>
+            </SwiperSlide>
+          ))}
       </Swiper>
     </>
   );
