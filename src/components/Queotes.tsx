@@ -35,7 +35,7 @@ export default function Queotes() {
         {Array(25)
           .fill(null)
           .map((_, i) => (
-            <SwiperSlide>
+            <SwiperSlide key={`quote${i}`}>
               <img src={`/static/quotes/q${i}.jpg`} alt="quotes" loading="lazy"/>
             </SwiperSlide>
           ))}
