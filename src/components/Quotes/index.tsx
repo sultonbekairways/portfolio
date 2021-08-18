@@ -40,7 +40,7 @@ export default function Queotes() {
               loading="lazy"
             />
             <p>
-              {title} <br /> - {person}
+              <span>{title}</span>- {person}
             </p>
           </div>
         </SwiperSlide>
