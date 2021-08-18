@@ -1,13 +1,14 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
+import React, { Suspense } from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/all";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import useDelayRouteExit from "delay-react-route-exit";
 
+const DanceAnimation = React.lazy(() => import("@components/DanceAnimation"));
 
 const About: React.FC = () => {
-  useDelayRouteExit(500)
+  useDelayRouteExit(500);
   gsap.registerPlugin(MotionPathPlugin);
   gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +54,11 @@ const About: React.FC = () => {
               className="about-contact__link"
               title="Mail"
             >
-              <img className="contact-icon" src="/static/about/mail.svg" alt="mail" />
+              <img
+                className="contact-icon"
+                src="/static/about/mail.svg"
+                alt="mail"
+              />
             </a>
           </li>
           <li>
@@ -63,7 +68,11 @@ const About: React.FC = () => {
               className="about-contact__link"
               title="Telegram"
             >
-              <img className="contact-icon" src="/static/svg/telegram.svg" alt="telegram" />
+              <img
+                className="contact-icon"
+                src="/static/svg/telegram.svg"
+                alt="telegram"
+              />
             </a>
           </li>
           <li>
@@ -73,7 +82,11 @@ const About: React.FC = () => {
               className="about-contact__link"
               title="Github"
             >
-              <img className="contact-icon" src="/static/svg/github.svg" alt="github" />
+              <img
+                className="contact-icon"
+                src="/static/svg/github.svg"
+                alt="github"
+              />
             </a>
           </li>
           <li>
@@ -159,28 +172,11 @@ const About: React.FC = () => {
         </ul>
       </div>
 
-      <div className="dance-wrapper">
-        <img
-          src="/static/about/gojoDance.gif"
-          alt="gojoDance"
-          className="gojo-dance about-dance"
-        />
-        <img
-          src="/static/about/kakashi.gif"
-          alt="kakashi"
-          className="kakashi-dance about-dance"
-        />
-        <img src="/static/about/clouds.png" alt="clouds" className="about-cloud" />
-        <svg id="about-motionPath" viewBox="-20 0 557 190">
-          <path
-            id="about-path"
-            fill="none"
-            d="M100.087,157.001 C136.214,137.154 114.416,141.291 187.47,140.291 262.459,140.291 225.881,119.24 263.867,123.454 321.613,129.86 316.041,172.118 358.866,162.301 444.282,142.718 413.928,155.826 437.565,139.326 "
-          />
-        </svg>
-      </div>
+      <Suspense fallback={<h2 className="loading">Loading...</h2>}>
+        <DanceAnimation />
+      </Suspense>
     </>
   );
-}
+};
 
 export default About;

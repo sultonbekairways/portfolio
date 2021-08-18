@@ -31,7 +31,7 @@ const Cube = () => {
         className="mySwiper"
       >
         {videoList.map((title, i) => (
-          <SwiperSlide>
+          <SwiperSlide key={title}>
             <div className="video-wrapper">
               <h3 className="video-wrapper__title">{title}</h3>
               <video

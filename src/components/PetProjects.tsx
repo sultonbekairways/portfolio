@@ -2,7 +2,7 @@ import React from "react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/all";
 
-export const PetProjects = () => {
+const PetProjects = () => {
   const landingWrapper = React.useRef<HTMLDivElement>(null);
   const landingInnerWrapper = React.useRef<HTMLDivElement>(null);
 
@@ -25,15 +25,22 @@ export const PetProjects = () => {
   }, [tl]);
 
   function startSlider() {
+    gsap.killTweensOf(reverseDelayedCall)
     tl.play();
   }
 
   function stopSlider() {
+    gsap.delayedCall(3, reverseDelayedCall);
+  }
+
+  function reverseDelayedCall() {
     tl.reverse();
   }
 
-  function moveSlider(e: React.MouseEvent) {
-    if (e.clientX > (landingWrapper.current?.clientWidth ?? 0) / 2) {
+  function moveSliderOnMouse(e: React.MouseEvent) {
+    const clientX = e.clientX;
+
+    if (clientX > (landingWrapper.current?.clientWidth ?? 0) / 2) {
       gsap.to(".landing-wrapper", {
         scrollTo: {
           x: "+=100",
@@ -52,6 +59,28 @@ export const PetProjects = () => {
     }
   }
 
+  function moveSliderOnTouch(e: React.TouchEvent) {
+    const clientX = e.changedTouches[0].clientX;
+
+    if (clientX > (landingWrapper.current?.clientWidth ?? 0) / 2) {
+      gsap.to(".landing-wrapper", {
+        scrollTo: {
+          x: "+=120",
+        },
+        ease: "power2.out",
+        duration: 1,
+      });
+    } else {
+      gsap.to(".landing-wrapper", {
+        scrollTo: {
+          x: "-=120",
+        },
+        ease: "power2.out",
+        duration: 1,
+      });
+    }
+  }
+
   return (
     <>
       <div className="p-15">
@@ -63,7 +92,10 @@ export const PetProjects = () => {
         <div
           onMouseOver={startSlider}
           onMouseLeave={stopSlider}
-          onMouseMove={moveSlider}
+          onMouseMove={moveSliderOnMouse}
+          onTouchStart={startSlider}
+          onTouchEnd={stopSlider}
+          onTouchMove={moveSliderOnTouch}
           ref={landingInnerWrapper}
           className="landing-inner-content"
         >
@@ -82,7 +114,9 @@ export const PetProjects = () => {
 
           <div className="landing-box">
             <div className="landing-box__content">
-              <a href="https://sultonbekairways.github.io/threejs-game/fps.html">Demo</a>
+              <a href="https://sultonbekairways.github.io/threejs-game/fps.html">
+                Demo
+              </a>
               <img src="/static/work/pet2.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>Singleplayer shooter game (Three.js, only on PC)</p>
@@ -92,7 +126,9 @@ export const PetProjects = () => {
 
           <div className="landing-box">
             <div className="landing-box__content">
-              <a href="https://sultonbekairways.github.io/webSocket-soccer/public/index.html">Demo</a>
+              <a href="https://sultonbekairways.github.io/webSocket-soccer/public/index.html">
+                Demo
+              </a>
               <img src="/static/work/pet3.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>Multiplayer soccer game (Three.js, Websocket, Node.js)</p>
@@ -132,7 +168,9 @@ export const PetProjects = () => {
 
           <div className="landing-box">
             <div className="landing-box__content">
-              <a href="https://sultonbekairways.github.io/image-gallery/build/">Demo</a>
+              <a href="https://sultonbekairways.github.io/image-gallery/build/">
+                Demo
+              </a>
               <img src="/static/work/pet7.jpg" alt="Pet-project" />
               <div className="landing-box__info">
                 <p>Image gallery (React, Tailwind css)</p>
@@ -144,3 +182,5 @@ export const PetProjects = () => {
     </>
   );
 };
+
+export default PetProjects;

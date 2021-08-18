@@ -1,16 +1,20 @@
-import React from "react";
+import React, { Suspense } from "react";
 import useDelayRouteExit from "delay-react-route-exit";
 
-import { RecentProjects } from "@components/RecentProjects";
-import { PetProjects } from "@components/PetProjects";
+const RecentProjects = React.lazy(() => import("@components/RecentProjects"));
+const PetProjects = React.lazy(() => import("@components/PetProjects"));
 
 const Work = () => {
   useDelayRouteExit(500);
 
   return (
     <div className="work">
-      <RecentProjects />
-      <PetProjects />
+      <Suspense fallback={<h2 className="loading">Loading...</h2>}>
+        <RecentProjects />
+      </Suspense>
+      <Suspense fallback={<h2 className="loading">Loading...</h2>}>
+        <PetProjects />
+      </Suspense>
     </div>
   );
 };

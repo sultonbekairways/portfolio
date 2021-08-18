@@ -2,8 +2,7 @@ import React from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
-
-export const RecentProjects = () => {
+const RecentProjects = () => {
   React.useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -53,7 +52,11 @@ export const RecentProjects = () => {
           </div>
         </a>
         <a href="https://proweb.uz/" className="work-proweb work-item">
-          <img src="/static/work/proweb.jpg" alt="proweb" className="work__img" />
+          <img
+            src="/static/work/proweb.jpg"
+            alt="proweb"
+            className="work__img"
+          />
           <div className="work-item__info">
             <h2>Proweb</h2>
             <span>#2021 - design project</span>
@@ -61,7 +64,11 @@ export const RecentProjects = () => {
           </div>
         </a>
         <a href="https://multicake.uz/" className="work-multicake work-item">
-          <img src="/static/work/multicake.jpg" alt="multicake" className="work__img" />
+          <img
+            src="/static/work/multicake.jpg"
+            alt="multicake"
+            className="work__img"
+          />
           <div className="work-item__info">
             <h2>Multicake</h2>
             <span>#2021 - small commerce</span>
@@ -72,3 +79,4 @@ export const RecentProjects = () => {
     </div>
   );
 };
+export default RecentProjects;
