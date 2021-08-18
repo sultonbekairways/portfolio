@@ -92,7 +92,7 @@ const About: React.FC = () => {
           <li>
             Download my
             <a
-              href="./Sultonbek-Nazarov.doc"
+              href="/Resume_Sultonbek_Nazarov.docx"
               title="Donwload Resume"
               className="about-contact__link"
             >

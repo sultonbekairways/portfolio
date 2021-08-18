@@ -48,7 +48,7 @@ const RecentProjects = () => {
           <div className="work-item__info">
             <h2>ScienceSoft</h2>
             <span>#2021 - commerce</span>
-            <p>SOFTWARE CONSULTING AND DEVELOPMENT FOR DIGITAL SUCCESS</p>
+            <p>Stack: Html, Tailwind Css, Git, BEM</p>
           </div>
         </a>
         <a href="https://proweb.uz/" className="work-proweb work-item">
@@ -60,7 +60,7 @@ const RecentProjects = () => {
           <div className="work-item__info">
             <h2>Proweb</h2>
             <span>#2021 - design project</span>
-            <p>Modern art center</p>
+            <p>Stack: Html, Scss, Gulp, Js, ES, Git, Three js</p>
           </div>
         </a>
         <a href="https://multicake.uz/" className="work-multicake work-item">
@@ -72,7 +72,19 @@ const RecentProjects = () => {
           <div className="work-item__info">
             <h2>Multicake</h2>
             <span>#2021 - small commerce</span>
-            <p>cakes with customer design</p>
+            <p>Stack: Node js, Express, Telegram Api</p>
+          </div>
+        </a>
+        <a href="https://textile-orcin.vercel.app/" className="work-multicake work-item">
+          <img
+            src="/static/work/textile.jpg"
+            alt="Texportal"
+            className="work__img"
+          />
+          <div className="work-item__info">
+            <h2>Texportal</h2>
+            <span>#2021 - freelance marketplace</span>
+            <p>Stack: Next js, Typescript, Redux, module Scss</p>
           </div>
         </a>
       </div>

@@ -43,7 +43,7 @@ export const quotesList = [
   {
     person: "Madara",
     title:
-      "In this world, wherever there is light - there are also shadows, as long as winners exists, there must also be losers. The selfish desire of wanting to maintain peace causes wars, and hatred is bor to protect love.",
+      "In this world, wherever there is light - there are also shadows, as long as winners exists, there must also be losers. The selfish desire to maintain peace causes wars, and hatred is born to protect love.",
   },
   {
     person: "Tsukushi",
